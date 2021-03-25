@@ -1,0 +1,4 @@
+/.idea/
+/service-samples/java/target/
+/service-samples/java/ExampleService.iml
+/service-samples/java/src/main/docker/
