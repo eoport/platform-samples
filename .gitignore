@@ -2,3 +2,10 @@
 /service-samples/java/target/
 /service-samples/java/ExampleService.iml
 /service-samples/java/src/main/docker/
+/JavaExamples/APIClientExample/APIClientExample.iml
+/JavaExamples/JavaExamples.iml
+/JavaExamples/ServiceExample/ServiceExample.iml
+/JavaExamples/ServiceExample/target/
+/JavaExamples/APIClientExample/target/
+/JavaExamples/target/
+/PythonExamples/PythonExamples.iml
