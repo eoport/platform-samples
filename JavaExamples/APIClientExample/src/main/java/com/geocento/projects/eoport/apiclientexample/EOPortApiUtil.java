@@ -13,8 +13,8 @@ public class EOPortApiUtil {
 
     static private String authUrl = "https://keycloak.svc.eoport.eu/";
     static private String authRealm = "eoport";
-    private static String apiKey = System.getProperty("eoportapikey"); //"eoportapiconfidential";
-    private static String apiSecret = System.getProperty("eoportapisecret"); //"90be5bdb-6dab-4a4f-808f-731eae5fd933";
+    private static String apiKey = System.getProperty("eoportapikey");
+    private static String apiSecret = System.getProperty("eoportapisecret");
     private static String apiBaseUrl = "https://webapp.dev02.eoport.eu/api";
 
     private String userName;
@@ -80,7 +80,6 @@ public class EOPortApiUtil {
 
     private ApiClient getAPIClient() throws Exception {
         ApiClient apiClient = new ApiClient();
-//        apiClient.setBasePath(Utils.buildUrl(apiBaseUrl, basePath));
         apiClient.setBasePath(apiBaseUrl);
         apiClient.setAccessToken(getToken());
         return apiClient;
