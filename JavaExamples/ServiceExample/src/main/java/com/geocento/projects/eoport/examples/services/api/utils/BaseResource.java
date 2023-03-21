@@ -1,5 +1,6 @@
-package com.geocento.projects.eoport.examples.services.api;
+package com.geocento.projects.eoport.examples.services.api.utils;
 
+import com.geocento.projects.eoport.examples.services.api.dtos.WebApplicationException;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.core.Response;
@@ -9,7 +10,7 @@ import javax.ws.rs.core.Response;
  */
 public abstract class BaseResource {
 
-    static Logger logger;
+    protected static Logger logger;
 
     protected WebApplicationException handleException(Exception e) {
         return handleException(e, "Server error");

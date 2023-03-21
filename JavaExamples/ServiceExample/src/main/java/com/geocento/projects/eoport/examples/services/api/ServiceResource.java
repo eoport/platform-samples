@@ -1,16 +1,13 @@
 package com.geocento.projects.eoport.examples.services.api;
 
 
-import com.amazonaws.services.s3.model.GetObjectRequest;
-import com.amazonaws.services.s3.model.PutObjectResult;
 import com.geocento.projects.eoport.examples.services.api.dtos.InputProduct;
 import com.geocento.projects.eoport.examples.services.api.dtos.Metadata;
 import com.geocento.projects.eoport.examples.services.api.dtos.ResponseProduct;
 import com.geocento.projects.eoport.examples.services.api.dtos.UsageReport;
-import com.geocento.projects.eoport.examples.services.api.utils.Configuration;
-import com.geocento.projects.eoport.examples.services.api.utils.ProductionManagerUtil;
-import com.geocento.projects.eoport.examples.services.api.utils.S3OBSUtils;
-import com.geocento.projects.eoport.examples.services.api.utils.Utils;
+import com.geocento.projects.eoport.examples.services.api.utils.*;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.geotools.data.DataUtilities;
 import org.geotools.data.DefaultTransaction;
@@ -30,13 +27,14 @@ import org.opengis.feature.simple.SimpleFeatureType;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.SecurityContext;
 import java.io.File;
 import java.io.Serializable;
+import java.net.URL;
 import java.util.*;
 
 /**
@@ -111,6 +109,9 @@ public class ServiceResource extends BaseResource {
                         File inputDirectory = new File(Configuration.getProperty(Configuration.APPLICATION_SETTINGS.pathToTmp));
                         File file = S3OBSUtils.downloadFromURI(inputProduct.getObjectURI(), inputDirectory);
 */
+
+                        File downloadedFile = new File(Configuration.getProperty(Configuration.APPLICATION_SETTINGS.pathToTmp), "testfile");
+                        FileUtils.copyURLToFile(new URL(inputProduct.getObjectURI()), downloadedFile);
 
                         // send back a file which is a shapefile of the input coordinates
                         String boundary = inputProduct.getMetadata().get("boundaryCoordinates");
@@ -224,8 +225,15 @@ public class ServiceResource extends BaseResource {
     public void scheduleProcess(InputProduct inputProduct) {
         try {
             // TODO - start spinnning some new VM or launch some pod...
+            logger.info("Received scheduler notification");
         } catch (Exception e) {
             throw handleException(e);
         }
+    }
+
+    @GET
+    @Path("/test")
+    public String testService() {
+        return "OK";
     }
 }

@@ -1,4 +1,4 @@
-package com.geocento.projects.eoport.examples.services.api;
+package com.geocento.projects.eoport.examples.services.api.dtos;
 
 import javax.ws.rs.core.Response;
 

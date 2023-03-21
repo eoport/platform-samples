@@ -1,4 +1,4 @@
-package com.geocento.projects.eoport.examples.services.api;
+package com.geocento.projects.eoport.examples.services.api.utils;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 

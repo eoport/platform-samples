@@ -14,7 +14,7 @@
 
     <properties>
         <!--        swagger stuff-->
-        <openapi.inputspec>https://webapp.dev02.eoport.eu/docs/openapi.yml</openapi.inputspec>
+        <openapi.inputspec>https://webapp.dev03.eoport.eu/docs/openapi.yml</openapi.inputspec>
         <swagger.apipackage>com.geocento.projects.eoport</swagger.apipackage>
         <swagger-annotations-version>1.5.21</swagger-annotations-version>
         <jodatime-version>2.7</jodatime-version>
@@ -25,7 +25,7 @@
             <plugin>
                 <groupId>io.swagger.codegen.v3</groupId>
                 <artifactId>swagger-codegen-maven-plugin</artifactId>
-                <version>3.0.18</version>
+                <version>3.0.32</version>
                 <executions>
                     <execution>
                         <phase>

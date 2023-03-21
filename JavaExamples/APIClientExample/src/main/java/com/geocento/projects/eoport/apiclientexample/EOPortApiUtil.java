@@ -15,7 +15,7 @@ public class EOPortApiUtil {
     static private String authRealm = "eoport";
     private static String apiKey = System.getProperty("eoportapikey");
     private static String apiSecret = System.getProperty("eoportapisecret");
-    private static String apiBaseUrl = "https://webapp.dev02.eoport.eu/api";
+    private static String apiBaseUrl = "https://webapp.dev03.eoport.eu/api";
 
     private String userName;
     private String password;
